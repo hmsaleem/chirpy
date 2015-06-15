@@ -35,7 +35,7 @@ setup(
 		'Operating System :: MacOS',
 		'Operating System :: Unix',
 	],
-	keywords='twitter'
+	keywords='twitter',
 
 
         # project metadata
