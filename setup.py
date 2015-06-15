@@ -17,7 +17,7 @@ class MyInstall(install):
 
 setup(
         name = 'chirpy',
-        version = '1.0.1',
+        version = '1.0.2',
         scripts = ['scripts/chirpy'],
         packages = ['chirpy'],
         package_dir = { 'chirpy': 'src/chirpy/'},
