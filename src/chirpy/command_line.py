@@ -43,7 +43,7 @@ parser.add_argument("-o", "--op", help="output dir", action="store", dest = 'out
 parser.add_argument("-k", "--kw", help="keyword", action="store", dest = 'query')
 parser.add_argument("-u", "--us", help="username", action="store", dest = 'user')
 parser.add_argument("-n", "--nm", help="tweet limit / hashtag count", action="store", type=int, dest = 'num')
-parser.add_argument("-d", "--dy", help="number of days", action="store", type=int, dest = 'days')
+parser.add_argument("-d", "--dy", help="number of days", action="store", dest = 'days')
 parser.add_argument("-p", "--pd", help="process id", action="store", dest = 'pid')
 args = parser.parse_args()
 
