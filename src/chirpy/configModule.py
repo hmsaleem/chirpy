@@ -2,7 +2,7 @@
 @uthor: Haji Mohammad Saleem
 
 Initialise all the directories and 
-Create and read a config file for the harvest module.
+Create and read a config file for the chirpy module.
 
 '''
 
@@ -22,7 +22,7 @@ def make_dir(path):
 
 def init_dir():
 	home = expanduser("~")
-	basepath = home+'/.harvest/'
+	basepath = home+'/.chirpy/'
 	#set paths
 	path1 = basepath+'profiles'
 	path2 = basepath+'logs'
@@ -37,10 +37,10 @@ def create_config():
 	Config = ConfigParser.ConfigParser()
 	home = expanduser("~")
 	
-	path1 = home+'/.harvest/profiles/'
-        path2 = home+'/.harvest/logs/'
+	path1 = home+'/.chirpy/profiles/'
+        path2 = home+'/.chirpy/logs/'
 
-	cfgfilepath = home+'/.harvest/harvest.config'
+	cfgfilepath = home+'/.chirpy/chirpy.config'
 	#create config file if not present
 	cfgfile = open(cfgfilepath,'w')
 
@@ -63,7 +63,7 @@ def read_config():
 	Config = ConfigParser.ConfigParser()
         home = expanduser("~")
 
-        cfgfilepath = home+'/.harvest/harvest.config'
+        cfgfilepath = home+'/.chirpy/chirpy.config'
 	if not os.path.isfile(cfgfilepath):
 		create_config()
 	

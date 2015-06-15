@@ -8,14 +8,14 @@ class MyInstall(install):
 
     def run(self):
         install.run(self)
-        os.system('python src/harvest/configModule.py')
+        os.system('python src/chirpy/configModule.py')
 
 setup(
-        name = 'harvest',
+        name = 'chirpy',
         version = '1.0',
-        scripts = ['scripts/harvest'],
-        packages = ['harvest'],
-        package_dir = { 'harvest': 'src/harvest/'},
+        scripts = ['scripts/chirpy'],
+        packages = ['chirpy'],
+        package_dir = { 'chirpy': 'src/chirpy/'},
         cmdclass={'install': MyInstall},
 	install_requires=[
         	'twitter==1.14.2',
@@ -41,6 +41,6 @@ setup(
         # project metadata
         author = 'Haji Mohammad Saleem',
         author_email = 'haji.saleem@mail.mcgill.ca',
-        description = 'Harvest is a command line interface for quickly collecting and parsing Twitter data.',
+        description = 'chirpy is a command line interface for quickly collecting and parsing Twitter data.',
         license = 'MIT',
 )

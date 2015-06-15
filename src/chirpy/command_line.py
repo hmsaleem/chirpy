@@ -32,7 +32,6 @@ import tweepy
 
 configs = read_config()
 ref_logs(configs['lpath'])
-#{'ppath': '/Users/SaleemSaddm/.harvest/profiles', 'dpath': 'False', 'lpath': '/Users/SaleemSaddm/.harvest/logs'}
 
 #-------------------------------------------------------------------------------------------------------------
 
@@ -139,7 +138,6 @@ elif args.options == 'stream':
                 print 'Missing Parameters'
                 print 'Requires -k keyword, -o ouputdir, -d number of days, -f output file '
         else:
-                #os.chdir('/usr/local/harvest/src/')
                 print 'Stream Started'
 		subprocess.Popen(['python', x+'/streamer.py', '-d', args.days, '-o', args.output_dir, '-f', args.output_file, '-k', args.query])
 
@@ -155,6 +153,6 @@ elif args.options == 'stream_remove':
 
 
 else:
-        print args.options, ': Command Not Found, check harvest --help for the avaiable options'
+        print args.options, ': Command Not Found, check chirpy --help for the avaiable options'
         sys.exit()
 
