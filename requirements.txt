@@ -1,0 +1,4 @@
+twitter==1.14.2
+tweepy==2.3.0
+configparser==3.3.0r2
+prettytable==0.7.2

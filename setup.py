@@ -1,8 +1,13 @@
 import os
 import sys
+import re, uuid
 from distutils.core import setup
 from setuptools import setup
 from setuptools.command.install import install
+from pip.req import parse_requirements
+
+install_reqs = parse_requirements('requirements.txt', session=uuid.uuid1())
+reqs = [str(req.req) for req in install_reqs]
 
 class MyInstall(install):
 
@@ -17,12 +22,7 @@ setup(
         packages = ['chirpy'],
         package_dir = { 'chirpy': 'src/chirpy/'},
         cmdclass={'install': MyInstall},
-	install_requires=[
-        	'twitter==1.14.2',
-		'tweepy==2.3.0',
-		'configparser==3.3.0r2',
-        	'prettytable==0.7.2',
-	],
+	install_requires=reqs,
 	classifiers=[
 		'Development Status :: 2 - Pre-Alpha',
 		'Intended Audience :: Science/Research',
