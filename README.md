@@ -155,7 +155,7 @@ The results are saved in user_name.txt in the approproate directories.
 
 #### Usage
 
-	chirpy user –user_name –o output_dir 
+	chirpy user –u user_name –o output_dir 
 
 - **-u**: username of the Twitter follower. @ is not required.
 - **-o**: *output_dir* is created in `pwd` if not present, for storing the captured file. `dpath` can be mentioned in `harvest.config` to specify a root path for storing all data. The directory would be created there in that case. 
@@ -234,25 +234,21 @@ This will remove the stream with id 3517, obtained from list.
 
 ***
 
+## Parsing saved data
 
+#### Viewing top hashtags in a file
 
+	chirpy tophash –i inputfile –n top_n
 
+* **-i**: input file.
+* **-n**: look for top n hashtags. (Optional, defaults to top 100)
 
-```
-tophashtag –i inputfile –n top_n
-```
+Example: `chirpy tophash –i pence.txt –n 10`
 
-
-* **-i**: input file for the analysis.
-* **-n**: look for top n hashtags.
-
-Example: `tophashtag –i pence.txt –n 10`
-
-This will look for top 10 hashtags in **pence.txt**. *Note*: to get all hashtags, remove –n.
-
+This will look for top 10 hashtags in **pence.txt**.
 
 ```
-(trusty)ndg01@carpathia:/ds-data/walterscott$ tophashtag -i waltersearch.txt -n 10
+user:~$ chirpy tophash -i waltersearch.txt -n 10
 +------------------+-----------+
 | Hashtag          | Frequency |
 +------------------+-----------+
@@ -271,41 +267,34 @@ This will look for top 10 hashtags in **pence.txt**. *Note*: to get all hashtags
 
 
 ***
-## Converting CSV
 
-We use the command `tweetparse` to convert json text files into csv.
+#### Converting to CSV
 
-To convert:
-	
-```
-tweetparse –i inputfile –f out_file 
-```
+The parse option converts a json text file into csv.
+
+	chirpy parse –i inputfile –f out_file 
 
 
 * **-i**: input file for the analysis.
 * **-f**: out_file would be created in the current folder.
 
-Example: `tweetparse -i pence.txt –f pence.csv`
+Example: `chirpy parse -i pence.txt –f pence.csv`
 
 This will create a csv file of the input file.
 
 **Note**: If output name is not given, a default name is selected, which is the inputname+_csvfile.csv.
 
-#### Additional options
+##### Additional options
 
 To restrict the csv to a keyword:
 	
-```
-tweetparse –i inputfile –f out_file –k keyword
-```
+	chirpy parse –i inputfile –f out_file –k keyword
 
 * **-k**: The csv file would only have results with the keyword
 
 To restrict the csv to a particular user:
 	
-```
-tweetparse –i inputfile –f out_file –u user
-```
+	chirpy parse –i inputfile –f out_file –u user
 
 * **-u**: The csv file would only have tweets from the user with the specific username.
 
