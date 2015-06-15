@@ -116,8 +116,8 @@ if __name__ == '__main__':
 		lfo.write(query+'\n')
 		lfo.write(str(childid)+'\n')	
 
-	#runtime = int(days)*10*60*24
-	runtime = int(days)*10
+	runtime = int(days)*10*60*24
+	#runtime = int(days)*10
 
 	for i in xrange(runtime):
 		if not 	check_pid(childid):
