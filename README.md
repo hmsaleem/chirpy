@@ -33,7 +33,7 @@ On installation, chirpy creates a directory `.chirpy` in user home. The director
 
 ## Synopsis
 
-`chirpy [options] flags`
+	chirpy [options] flags
 
 ***
 
@@ -202,6 +202,36 @@ user:~$ chirpy stream -k hello -o testhello -f hello.txt -d 3
 Stream Started
 ```
 
+### Managing streams
+
+#### List streams
+
+	chirpy stream_list
+
+Lists all the currently running streams.
+
+
+```
+(trusty)ndg01@carpathia:~$ twitterstream list
+runnign streams...
++------+--------------+------------------+----------+--------------+
+| Pid  | Query        | Tweets Collected | Run time | Profile      |
++------+--------------+------------------+----------+--------------+
+| 3517 | #walterscott | 9657             | 6:09:54  | KellyPDillon |
+|      |              |                  |          |              |
++------+--------------+------------------+----------+--------------+
+```
+
+#### Remove streams
+
+	chirpy stream_remove –p pid
+
+* **-p**: process id of the stream you want to terminate.
+
+Example: `twitterstream remove –p 3517`
+
+This will remove the stream with id 3517, obtained from list.
+
 ***
 
 
@@ -239,62 +269,6 @@ This will look for top 10 hashtags in **pence.txt**. *Note*: to get all hashtags
 +------------------+-----------+
 ```
 
-
-***
-## Twitter streaming
-
-The previous command `twittersearch` looked for those tweets that have already been posted online. `twitterstreaming` seeks for tweets that would be posted while it is running. It has three available options: 
-
-* **Add**: add is used to add a new stream tracker.
-* **List**: is used to list all running trackers.
-* **Remove**: remove a particular tracker.
-
-#### ADD:
-
-```
-twitterstream add –d days –k \#hashtag –o output_folder –f out_file
-```
-
-* **-k**: keyword to be tracked. \ is to user the # symbol, not required if # not used.
-* **-o**: output_folder is created if not present in /ds-data/(you don’t have to create one explicitly). The data is stored in it.
-* **-f**: out_file would be created in /ds-data/output_folder.
-* **-d**: sets the number of days the tracker runs before terminating.
-
-Example: `twitterstream add –d 3 –o indiana –f pence_stream.txt –k \#pence`
-
-This will track the stream for tweets with **#pence**, list them in a txt file named **pence_stream**, place in the directory named **Indiana**. The tracker would run for three days.
-
-#### LIST:
-
-```
-twitterstream list
-```
-
-Lists all the currently running streams.
-
-
-```
-(trusty)ndg01@carpathia:~$ twitterstream list
-runnign streams...
-+------+--------------+------------------+----------+--------------+
-| Pid  | Query        | Tweets Collected | Run time | Profile      |
-+------+--------------+------------------+----------+--------------+
-| 3517 | #walterscott | 9657             | 6:09:54  | KellyPDillon |
-|      |              |                  |          |              |
-+------+--------------+------------------+----------+--------------+
-```
-
-#### REMOVE:
-
-```
-twitterstream remove –p pid
-```
-
-* **-p**: process id of the stream you want to terminate.
-
-Example: `twitterstream remove –p 3517`
-
-This will remove the stream with id 3517, obtained from list.
 
 ***
 ## Converting CSV
@@ -337,57 +311,3 @@ tweetparse –i inputfile –f out_file –u user
 
 **Note**: These options can be used together.
 
-***
-## Saving files to local system
-
-1. Open a new terminal window
-2. Drill down to where you want to save the files  on your local system(use commands like `ls` to list the directories, `cd` to open a directory, `mkdir` to make a new directory)
-3. Use scp
-
-```
-scp ndg01@carpathia.cs.mcgill.ca:/ds-data/[foldername]/* . 
-```
-
-(make sure there’s a space between the * and the dot) This will copy all the files in that folder to your local system at the current location.
-4. Replace * with the name of the file to download a specific file.
-
-***
-## Managing API Profiles
-
-API profiles and keys are used to gather data either through streaming or searching. Once a command is given, it occupies one of these profiles. Below are instructions for accessing, adding, and deleting profiles from the server. We use the command profilemanager to manage APIs. It has three available options: 
-	
-* **Add**: add a new profile.
-* **List**: is used to list the profiles.
-* **Remove**: remove particular profile.
-
-#### ADD:
-
-```
-profilemanager add
-```
-
-
-You will be prompted to enter the:
-
-a. Twitter username
-b. Consumer_key
-c. Consumer_secret
-d. Access_token
-e. Access_token_secret
-
-
-#### LIST:
-
-```
-profilemanager list
-```
-
-#### REMOVE:
-
-```
-profilemanager remove
-```
-
-You will be prompted to enter the username. 
-Be sure to type the profile name properly so not to delete the wrong profile.
-You will be prompted to confirm deleting the profile. Type y.
