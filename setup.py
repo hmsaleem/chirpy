@@ -17,7 +17,7 @@ class MyInstall(install):
 
 setup(
         name = 'chirpy',
-        version = '1.0',
+        version = '1.0.1',
         scripts = ['scripts/chirpy'],
         packages = ['chirpy'],
         package_dir = { 'chirpy': 'src/chirpy/'},
@@ -43,4 +43,5 @@ setup(
         author_email = 'haji.saleem@mail.mcgill.ca',
         description = 'chirpy is a command line interface for quickly collecting and parsing Twitter data.',
         license = 'MIT',
+	url = 'https://github.com/elric-dev/chirpy',
 )
