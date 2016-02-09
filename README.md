@@ -1,4 +1,4 @@
-![Chirpy](http://cs.mcgill.ca/~hsalee/images/chipy.png)
+![](http://cs.mcgill.ca/~hsalee/images/chipy.png)
 
 
 # *chirpy* 
