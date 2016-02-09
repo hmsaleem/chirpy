@@ -1,3 +1,6 @@
+![Chirpy](http://cs.mcgill.ca/~hsalee/images/chipy.png)
+
+
 # *chirpy* 
 a command line interface for quickly collecting and parsing Twitter data.
 
